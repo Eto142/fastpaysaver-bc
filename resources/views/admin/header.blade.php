@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- Modern Admin CSS (loads after Bootstrap to override) -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/admin-modern.css')}}" />
+    <link rel="stylesheet" href="{{asset('admin/assets/css/admin-modern.css')}}?v={{ filemtime(public_path('admin/assets/css/admin-modern.css')) }}" />
 
     @stack('styles')
 </head>

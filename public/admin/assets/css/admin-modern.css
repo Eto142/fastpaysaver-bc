@@ -90,6 +90,11 @@ body {
     background: var(--admin-primary);
 }
 
+/* Sidebar Overlay - hidden by default on desktop */
+.sidebar-overlay {
+    display: none;
+}
+
 /* ============================================
    SIDEBAR STYLES
    ============================================ */
