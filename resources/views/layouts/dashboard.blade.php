@@ -16,7 +16,7 @@
     <link href="{{ asset('assets/css/bank-dashboard.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
-<body>
+<body class="loading">
 
 {{-- Preloader --}}
 <div class="bk-loader" id="bkLoader">
@@ -301,6 +301,22 @@
 </script>
 
 @stack('scripts')
-<script>window.addEventListener('load',function(){var l=document.getElementById('bkLoader');if(l)l.classList.add('done')})</script>
+<script>
+(function(){
+    var loader = document.getElementById('bkLoader');
+    var body = document.body;
+    function hideLoader() {
+        if (loader) loader.classList.add('done');
+        body.classList.remove('loading');
+    }
+    if (document.readyState === 'complete') {
+        hideLoader();
+    } else {
+        window.addEventListener('load', hideLoader);
+    }
+    // Fallback: hide after 4 seconds max
+    setTimeout(hideLoader, 4000);
+})();
+</script>
 </body>
 </html>
