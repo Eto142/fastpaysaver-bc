@@ -218,7 +218,7 @@
         </a>
         <a href="{{ route('deposit') }}" class="bottom-nav-item bottom-nav-center {{ request()->routeIs('deposit') ? 'active' : '' }}">
             <div class="bottom-nav-fab"><i class="bi bi-plus-lg"></i></div>
-            <span>Fund</span>
+            <span>Deposit</span>
         </a>
         <a href="{{ route('card') }}" class="bottom-nav-item {{ request()->routeIs('card*') ? 'active' : '' }}">
             <i class="bi bi-credit-card-fill"></i>
