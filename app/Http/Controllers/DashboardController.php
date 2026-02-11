@@ -94,7 +94,7 @@ class DashboardController extends Controller
                                - $data['user_debit'] - $data['debit_transfers'] - $data['user_card'];
 
         // Stats for dashboard cards
-        $data['totalDeposit'] = $data['user_deposits'] + $data['credit_transfers'];
+        $data['totalDeposit'] = $data['user_deposits'];
         $data['totalSpent']   = $data['user_debit'] + $data['debit_transfers'] + $data['user_card'];
         $data['activeCards']  = Card::where('user_id', $user->id)->where('status', '1')->count();
 

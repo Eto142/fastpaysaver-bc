@@ -36,15 +36,55 @@
                         </div>
                     </div>
                     
+                    <!-- Financial Summary - At Top -->
+                    <div class="row g-2 text-center mb-3">
+                        <div class="col-6">
+                            <div class="bg-success rounded p-2">
+                                <div class="text-white fw-bold fs-5">{{$userProfile->currency}}{{number_format($balance, 2)}}</div>
+                                <small class="text-white fw-semibold">Balance</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-primary rounded p-2">
+                                <div class="text-white fw-bold fs-5">{{$userProfile->currency}}{{number_format($user_deposits, 2)}}</div>
+                                <small class="text-white fw-semibold">Deposits</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-info rounded p-2">
+                                <div class="text-white fw-bold fs-5">{{$userProfile->currency}}{{number_format($credit_transfers, 2)}}</div>
+                                <small class="text-white fw-semibold">Credits</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-danger rounded p-2">
+                                <div class="text-white fw-bold fs-5">{{$userProfile->currency}}{{number_format($debit_transfers, 2)}}</div>
+                                <small class="text-white fw-semibold">Debits</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="rounded p-2" style="background-color: #fd7e14;">
+                                <div class="text-white fw-bold fs-5">{{$userProfile->currency}}{{number_format($user_loans, 2)}}</div>
+                                <small class="text-white fw-semibold">Loans</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-dark rounded p-2">
+                                <div class="text-white fw-bold fs-5">{{$userProfile->currency}}{{number_format($user_card, 2)}}</div>
+                                <small class="text-white fw-semibold">Card Withdrawals</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-2">
                     <div class="text-start">
                         <p><strong><i class="bi bi-envelope me-2"></i>Email:</strong> {{$userProfile->email}}</p>
                         <p><strong><i class="bi bi-credit-card me-2"></i>Account #:</strong> {{$userProfile->a_number}}</p>
                         <p><strong><i class="bi bi-key me-2"></i>Account Pin:</strong> {{$userProfile->account_pin}}</p>
                         <p><strong><i class="bi bi-phone me-2"></i>Phone:</strong> {{$userProfile->phone_number}}</p>
                         <p><strong><i class="bi bi-globe me-2"></i>Country:</strong> {{$userProfile->country}}</p>
-                        <p><strong><i class="bi bi-shield-lock me-2"></i>TAC Code:</strong> {{$userProfile->otp}}</p>
+                        {{-- <p><strong><i class="bi bi-shield-lock me-2"></i>TAC Code:</strong> {{$userProfile->otp}}</p> --}}
                         <p><strong><i class="bi bi-cash-stack me-2"></i>Loan Eligibility:</strong> {{$userProfile->currency}}{{number_format($userProfile->eligible_loan, 2)}}</p>
-                        <p><strong><i class="bi bi-wallet2 me-2"></i>Balance:</strong> {{$userProfile->currency}}{{number_format($balance, 2)}}</p>
                     </div>
                 </div>
             </div>
