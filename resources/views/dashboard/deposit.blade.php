@@ -4,9 +4,26 @@
 
 @section('content')
 
-{{-- Row 1 — Balance Hero + Account Details --}}
-<div class="row g-4 mb-4">
-    <div class="col-lg-6">
+{{-- Row 1  Mobile Check Deposit HERO --}}
+<div class="deposit-hero mb-4" data-bs-toggle="modal" data-bs-target="#fiat">
+    <div class="deposit-hero-bg"></div>
+    <div class="deposit-hero-content">
+        <div class="deposit-hero-icon">
+            <i class="bi bi-phone"></i>
+        </div>
+        <div class="deposit-hero-text">
+            <h4>Mobile Check Deposit</h4>
+            <p>Snap a photo of your check and deposit funds instantly  available 24/7</p>
+        </div>
+        <div class="deposit-hero-action">
+            <span class="btn btn-light btn-sm fw-600 px-4">Deposit Now <i class="bi bi-arrow-right ms-1"></i></span>
+        </div>
+    </div>
+</div>
+
+{{-- Row 2  Balance + Stats --}}
+<div class="row g-3 mb-4">
+    <div class="col-12 col-md-6 col-lg-4">
         <div class="balance-card">
             <div class="d-flex justify-content-between align-items-start">
                 <div>
@@ -21,41 +38,46 @@
         </div>
     </div>
 
-    <div class="col-lg-6">
-        <div class="row g-3">
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="row g-3 h-100">
             <div class="col-6">
-                <div class="stat-card">
+                <div class="stat-card h-100">
                     <div class="stat-icon blue"><i class="bi bi-person-fill"></i></div>
-                    <div>
+                    <div class="stat-card-text">
                         <div class="stat-label">Account Owner</div>
                         <div class="stat-value stat-value-sm">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</div>
                     </div>
                 </div>
             </div>
             <div class="col-6">
-                <div class="stat-card">
+                <div class="stat-card h-100">
                     <div class="stat-icon green"><i class="bi bi-hash"></i></div>
-                    <div>
-                        <div class="stat-label">Account Number</div>
+                    <div class="stat-card-text">
+                        <div class="stat-label">Account No.</div>
                         <div class="stat-value stat-value-sm">{{ Auth::user()->a_number }}</div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <div class="row g-3 h-100">
             <div class="col-6">
-                <div class="stat-card">
+                <div class="stat-card h-100">
                     <div class="stat-icon yellow"><i class="bi bi-bank"></i></div>
-                    <div>
+                    <div class="stat-card-text">
                         <div class="stat-label">Account Type</div>
                         <div class="stat-value stat-value-sm">{{ Auth::user()->account_type }}</div>
                     </div>
                 </div>
             </div>
             <div class="col-6">
-                <div class="stat-card">
+                <div class="stat-card h-100">
                     <div class="stat-icon red"><i class="bi bi-envelope-fill"></i></div>
-                    <div>
+                    <div class="stat-card-text">
                         <div class="stat-label">Email</div>
-                        <div class="stat-value stat-value-xs">{{ Auth::user()->email }}</div>
+                        <div class="stat-value stat-value-email" title="{{ Auth::user()->email }}">{{ Auth::user()->email }}</div>
                     </div>
                 </div>
             </div>
@@ -63,14 +85,14 @@
     </div>
 </div>
 
-{{-- Row 2 — Deposit Methods --}}
+{{-- Row 3  Other Deposit Methods --}}
 <div class="db-card mb-4">
     <div class="db-card-header">
-        <i class="bi bi-plus-circle me-2"></i> Fund Your Account
+        <i class="bi bi-plus-circle me-2"></i> Other Deposit Methods
     </div>
     <div class="db-card-body">
         <div class="row g-3">
-            {{-- Mobile Check Deposit --}}
+            {{-- Mobile Check Deposit (secondary) --}}
             <div class="col-md-6">
                 <div class="deposit-method-card" data-bs-toggle="modal" data-bs-target="#fiat">
                     <div class="deposit-method-icon accent">
@@ -101,7 +123,7 @@
     </div>
 </div>
 
-{{-- Row 3 — Quick Actions --}}
+{{-- Row 3  Quick Actions --}}
 <div class="quick-actions mb-4">
     <a href="{{ route('bank') }}" class="qa-btn"><i class="bi bi-send"></i> Transfer</a>
     <a href="{{ route('transactions') }}" class="qa-btn"><i class="bi bi-clock-history"></i> Transactions</a>

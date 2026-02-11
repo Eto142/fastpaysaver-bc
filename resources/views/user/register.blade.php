@@ -26,6 +26,34 @@
 
     </head>
     <body class="h-100 bg-soft-primary">
+<!-- Preloader -->
+<div class="bk-loader" id="bkLoader">
+  <div class="bk-loader-content">
+    <div class="bk-loader-icon">
+      <svg viewBox="0 0 48 48" fill="none"><path class="bk-shield" d="M24 4L6 12v12c0 11.1 7.7 21.5 18 24 10.3-2.5 18-12.9 18-24V12L24 4z" stroke="currentColor" stroke-width="2"/><path class="bk-check" d="M16 24l6 6 10-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="bk-loader-bar"><div class="bk-loader-bar-fill"></div></div>
+    <p class="bk-loader-text">Securing your connection<span class="bk-loader-dots"></span></p>
+  </div>
+</div>
+<style>
+.bk-loader{position:fixed;inset:0;background:#0c2340;display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .6s ease,visibility .6s ease}
+.bk-loader.done{opacity:0;visibility:hidden;pointer-events:none}
+.bk-loader-content{display:flex;flex-direction:column;align-items:center;gap:24px}
+.bk-loader-icon{width:56px;height:56px;color:rgba(255,255,255,.85);animation:lPulse 1.6s ease-in-out infinite,lEntry .5s ease both}
+.bk-loader-icon svg{width:100%;height:100%}
+.bk-shield{stroke-dasharray:140;stroke-dashoffset:140;animation:lDraw 1.2s .2s ease forwards}
+.bk-check{stroke-dasharray:40;stroke-dashoffset:40;animation:lDraw .6s 1s ease forwards}
+.bk-loader-bar{width:160px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;animation:lEntry .5s .1s ease both}
+.bk-loader-bar-fill{width:0;height:100%;background:linear-gradient(90deg,rgba(255,255,255,.15),rgba(255,255,255,.6));border-radius:2px;animation:lFill 2s .3s ease forwards}
+.bk-loader-text{color:rgba(255,255,255,.35);font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;animation:lEntry .5s .25s ease both}
+.bk-loader-dots::after{content:'';animation:lDots 1.4s steps(4,end) infinite}
+@keyframes lEntry{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes lPulse{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes lDraw{to{stroke-dashoffset:0}}
+@keyframes lFill{0%{width:0}50%{width:65%}100%{width:100%}}
+@keyframes lDots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}
+</style>
        <section class="y auth">
         <div class="container">
             <div class="pb-3 row justify-content-center">
@@ -451,6 +479,7 @@
         return e.which !== 32;
     });
 </script>
+<script>window.addEventListener('load',function(){var l=document.getElementById('bkLoader');if(l)l.classList.add('done')})</script>
     </body>
 
 <!-- Mirrored from www.trader.digitalcryptocurrencytrade.com/register by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 Oct 2022 19:23:36 GMT -->

@@ -27,7 +27,18 @@
 <body class="bk-body">
 
 <!-- Loader -->
-<div class="bk-loader" id="bkLoader"><div class="bk-loader-spinner"></div></div>
+<div class="bk-loader" id="bkLoader">
+  <div class="bk-loader-content">
+    <div class="bk-loader-icon">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="bk-shield" d="M24 4L6 12v12c0 11.1 7.7 21.5 18 24 10.3-2.5 18-12.9 18-24V12L24 4z" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path class="bk-check" d="M16 24l6 6 10-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="bk-loader-bar"><div class="bk-loader-bar-fill"></div></div>
+    <p class="bk-loader-text">Securing your connection<span class="bk-loader-dots"></span></p>
+  </div>
+</div>
 
 <!-- ===== UTILITY TOP BAR ===== -->
 <div class="bk-topbar">
