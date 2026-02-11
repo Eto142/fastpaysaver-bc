@@ -18,7 +18,7 @@
         if (sidebarToggle) {
             sidebarToggle.addEventListener('click', () => {
                 if (window.innerWidth <= 992) {
-                    sidebar.classList.toggle('mobile-open');
+                    document.body.classList.toggle('sidebar-open');
                 } else {
                     sidebar.classList.toggle('collapsed');
                 }
@@ -27,9 +27,16 @@
 
         if (sidebarOverlay) {
             sidebarOverlay.addEventListener('click', () => {
-                sidebar.classList.remove('mobile-open');
+                document.body.classList.remove('sidebar-open');
             });
         }
+
+        // Close sidebar on window resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 992) {
+                document.body.classList.remove('sidebar-open');
+            }
+        });
 
         // Profile Dropdown Toggle
         const profileToggle = document.getElementById('profileDropdownToggle');
