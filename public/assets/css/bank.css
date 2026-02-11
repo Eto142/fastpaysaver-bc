@@ -1,0 +1,72 @@
+ 
+    body {
+      background-color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      padding-bottom: 70px;
+    }
+
+    .btn-main {
+      background-color: #fddbd3;
+      color: #b93b2d;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .btn-outline-main {
+      border: 1px solid #fddbd3;
+      color: #b93b2d;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .transaction-box {
+      background-color: #f6f6f6;
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+   .bottom-nav {
+      border-top: 1px solid #ddd;
+    }
+
+    .bottom-nav .nav-link {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .bottom-nav .nav-link.active {
+      color: #f26a63;
+    }
+
+    .small-text {
+      font-size: 13px;
+    }
+
+    .clickable {
+      cursor: pointer;
+    }
+    
+    /* Transfer specific styles */
+    .transfer-header {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .form-control {
+      border-radius: 12px;
+      padding: 12px 15px;
+    }
+    
+    .alert-notice {
+      background-color: #f8f9fa;
+      border-left: 4px solid #f26a63;
+      border-radius: 8px;
+    }
+    
+    .balance-display {
+      font-size: 24px;
+      font-weight: 600;
+      color: #2c3e50;
+    }

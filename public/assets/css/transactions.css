@@ -1,0 +1,108 @@
+
+    body {
+      background-color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      padding-bottom: 70px;
+    }
+
+    .btn-main {
+      background-color: #fddbd3;
+      color: #b93b2d;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .btn-outline-main {
+      border: 1px solid #fddbd3;
+      color: #b93b2d;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .transaction-box {
+      background-color: #f6f6f6;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+   .bottom-nav {
+      border-top: 1px solid #ddd;
+    }
+
+    .bottom-nav .nav-link {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .bottom-nav .nav-link.active {
+      color: #f26a63;
+    }
+
+    .small-text {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .clickable {
+      cursor: pointer;
+    }
+    
+    /* Transaction specific styles */
+    .transaction-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-right: 15px;
+    }
+    
+    .transaction-success {
+      background-color: #E8F5E9;
+      color: #2E7D32;
+    }
+    
+    .transaction-pending {
+      background-color: #E3F2FD;
+      color: #1565C0;
+    }
+    
+    .transaction-failed {
+      background-color: #FFEBEE;
+      color: #C62828;
+    }
+    
+    .transaction-approved {
+      background-color: #F1F8E9;
+      color: #558B2F;
+    }
+    
+    .transaction-amount {
+      font-weight: 600;
+    }
+    
+    .transaction-date {
+      color: #888;
+      font-size: 12px;
+    }
+    
+    .transaction-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 40px 0;
+    }
+    
+    .empty-state-icon {
+      font-size: 48px;
+      color: #ddd;
+      margin-bottom: 15px;
+    }
