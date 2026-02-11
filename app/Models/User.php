@@ -32,6 +32,9 @@ class User extends Authenticatable
         'account_type', 
         'account_pin',
         'password',
+        'gender',
+        'dob',
+        'display_picture',
   
        
     

@@ -1262,6 +1262,9 @@ body.sidebar-collapsed .main-wrapper {
 .profile-item:last-child { border-bottom: none; }
 .profile-item-label { color: var(--text-secondary); font-size: 13px; }
 .profile-item-value { font-weight: 500; font-size: 14px; }
+.profile-item-link { cursor: pointer; transition: background .2s; margin: 0 -16px; padding: 12px 16px; border-radius: var(--radius-sm); }
+.profile-item-link:hover { background: var(--bg-body); }
+.profile-item-link .profile-item-value { color: var(--accent); }
 .nav-tabs .nav-link { border: none; color: var(--text-secondary); font-weight: 500; font-size: 13.5px; padding: 10px 18px; }
 .nav-tabs .nav-link.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
 

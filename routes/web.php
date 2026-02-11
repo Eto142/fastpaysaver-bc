@@ -91,6 +91,7 @@ Route::middleware('auth')->group(function () {
     Route::get('settings', [DashboardController::class, 'settings'])->name('settings');
     Route::get('change-password', [DashboardController::class, 'userChangePassword'])->name('user.change.password');
     Route::post('change-password', [DashboardController::class, 'updatePassword'])->name('update-password');
+    Route::post('change-pin', [DashboardController::class, 'updateTransactionPin'])->name('update-pin');
 
     // Notifications & Transactions
     Route::get('notification', [DashboardController::class, 'notification'])->name('notification');

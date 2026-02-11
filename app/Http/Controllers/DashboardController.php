@@ -464,6 +464,26 @@ for ($i = 0; $i < 16; $i++) {
         return view('dashboard.settings');
     } 
     
+    public function updateTransactionPin(Request $request)
+    {
+        $request->validate([
+            'current_pin' => 'required|digits:4',
+            'new_pin' => 'required|digits:4|confirmed',
+        ]);
+
+        // Check current PIN
+        if ($request->current_pin != Auth::user()->account_pin) {
+            return back()->with('error', 'Current PIN is incorrect.');
+        }
+
+        // Update the PIN
+        User::whereId(Auth::user()->id)->update([
+            'account_pin' => $request->new_pin
+        ]);
+
+        return back()->with('success', 'Transaction PIN updated successfully.');
+    }
+
     public function updatePassword(Request $request)
 {
         # Validation
@@ -1444,10 +1464,10 @@ public function personalDetails(Request $request)
         'first_name'     => 'required|string|max:255',
         'last_name'      => 'required|string|max:255',
         'user_phone'     => 'required|string|max:20',
-        'gender'         => 'in:male,female,other',
+        'gender'         => 'nullable|in:male,female,other',
         'dob'            => 'required|date|before:today',
         'user_address'   => 'required|string|max:500',
-        'country'        => 'string|max:100',
+        'country'        => 'nullable|string|max:100',
         'image'          => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
     ]);
 
@@ -1458,9 +1478,15 @@ public function personalDetails(Request $request)
     $user->gender         = $request->gender;
     $user->dob            = $request->dob;
     $user->address        = $request->user_address;
-    $user->country        = $request->country;
+    if ($request->filled('country')) {
+        $user->country = $request->country;
+    }
 
     if ($request->hasFile('image')) {
+        // Delete old image if exists
+        if ($user->display_picture && file_exists(public_path('uploads/display/' . $user->display_picture))) {
+            @unlink(public_path('uploads/display/' . $user->display_picture));
+        }
         $file = $request->file('image');
         $filename = 'profile_' . $user->id . '_' . time() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('uploads/display'), $filename);
@@ -1469,7 +1495,7 @@ public function personalDetails(Request $request)
 
     $user->save();
 
-    return back()->with('status', 'Personal Details Updated Successfully');
+    return back()->with('success', 'Personal details updated successfully!');
 }
 
 
@@ -1499,14 +1525,14 @@ public function personalDetails(Request $request)
     public function personalDp(Request $request)
 {
     $request->validate([
-        'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'image' => 'required|image|mimes:jpeg,png,jpg|max:5120',
     ]);
 
     $user = Auth::user();
 
     // Delete old image if it exists
     if ($user->display_picture && file_exists(public_path('uploads/display/' . $user->display_picture))) {
-        unlink(public_path('uploads/display/' . $user->display_picture));
+        @unlink(public_path('uploads/display/' . $user->display_picture));
     }
 
     if ($request->hasFile('image')) {
@@ -1518,7 +1544,7 @@ public function personalDetails(Request $request)
 
     $user->save();
 
-    return back()->with('status', 'Profile picture updated successfully!');
+    return back()->with('success', 'Profile picture updated successfully!');
 }
 
 
