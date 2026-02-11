@@ -1,60 +1,49 @@
-
 @include('admin.header')
 @include('admin.navbar')
 
-<!-- Content wrapper scroll start -->
-<div class="content-wrapper-scroll">
-	@if (session('error'))
-	<div class="alert box-bdr-red alert-dismissible fade show text-red" role="alert">
-		<b>Error!</b>{{ session('error') }}
-		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-	</div>
-	@elseif (session('status'))
-	<div class="alert box-bdr-green alert-dismissible fade show text-green" role="alert">
-		<b>Success!</b> {{ session('status') }}
-		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-	</div>
-	@endif
-	<!-- Main header starts -->
-
+<!-- Page Header -->
+<div class="page-header">
+    <div>
+        <nav class="breadcrumb">
+            <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+            <span class="separator">/</span>
+            <span class="current">Update Wallet</span>
+        </nav>
+        <h1 class="page-title">Update Wallet</h1>
+        <p class="page-subtitle">Manage cryptocurrency wallet addresses</p>
+    </div>
 </div>
-<!-- Row end -->
 
-<!-- Row start -->
-<div class="main-panel">
-	<div class="content-wrapper">
+<!-- Wallet Selection Form -->
+<div style="max-width: 500px;">
+    <div class="admin-card">
+        <div class="admin-card-header">
+            <h3 class="admin-card-title">
+                <i class="bi bi-wallet2"></i>
+                Select Wallet to Update
+            </h3>
+        </div>
+        
+        <div class="admin-card-body">
+            <form action="{{ route('admin.choose.wallet') }}" method="POST">
+                @csrf
 
-<div class="col-md-6 grid-margin stretch-card">
-		  <div class="card">
-			<div class="card-body">
-			  <p class="card-description">
-			  Update Bank/Wallet Details
-			  </p>
-			  <form action ="{{ route('admin.choose.wallet')}}" method ="POST" enctype="multipart/form-data">
-						 @csrf
-						 <div class="form-group">
-			<label class="btn btn-primary"> SELECT WALLET </label>
-			<select class="form-control form-control-lg" name="method" id="exampleFormControlSelect1">          
-					   
+                <div class="form-group">
+                    <label class="form-label">Select Wallet Type</label>
+                    <select class="form-select" name="method">
+                        <option value="usdt">USDT (Tether)</option>
+                        <option value="btc">Bitcoin</option>
+                        <option value="eth">Ethereum</option>
+                    </select>
+                </div>
 
-							<option value="usdt">USDT</option>
-							<option value="btc">BITCOIN</option>
-							<option value="eth">ETHEREUM</option>
-							                           
-						  </select>
-				</div>
-				<button type="submit" class="btn btn-primary me-2">Update</button>
-			  </form>
-			</div>
-		  </div>
-		</div>       
-
+                <button type="submit" class="btn-admin btn-admin-primary w-100">
+                    <i class="bi bi-arrow-right"></i>
+                    Update Selected Wallet
+                </button>
+            </form>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-<!-- Content wrapper end -->
-
-</div>
-<!-- Content wrapper scroll end -->
 
 @include('admin.footer')

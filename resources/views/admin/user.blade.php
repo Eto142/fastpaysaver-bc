@@ -27,12 +27,12 @@
                             <span class="badge bg-{{$userProfile->user_status==='0' ? 'success' : 'danger'}} me-2">
                                 {{$userProfile->user_status==="0" ? 'Active' : 'Frozen'}}
                             </span>
-                            <span class="badge bg-{{$userProfile->user_block==='0' ? 'success' : 'danger'}} me-2">
+                            {{-- <span class="badge bg-{{$userProfile->user_block==='0' ? 'success' : 'danger'}} me-2">
                                 {{$userProfile->user_block==="0" ? 'Unblocked' : 'Blocked'}}
-                            </span>
-                            <span class="badge bg-{{$userProfile->user_activity==='0' ? 'danger' : 'warning'}}">
+                            </span> --}}
+                            {{-- <span class="badge bg-{{$userProfile->user_activity==='0' ? 'danger' : 'warning'}}">
                                 {{$userProfile->user_activity==="0" ? 'ML Deactivated' : 'ML Activated'}}
-                            </span>
+                            </span> --}}
                         </div>
                     </div>
                     
@@ -67,12 +67,12 @@
                                 <a href="{{route('admin.unfreeze_user',$userProfile->id)}}" class="btn btn-outline-danger">
                                     <i class="bi bi-lock"></i> Unfreeze Account
                                 </a>
-                                <a href="{{route('admin.user_block',$userProfile->id)}}" class="btn btn-outline-warning">
+                                {{-- <a href="{{route('admin.user_block',$userProfile->id)}}" class="btn btn-outline-warning">
                                     <i class="bi bi-person-x"></i> Block User
                                 </a>
                                 <a href="{{route('admin.iuser_block',$userProfile->id)}}" class="btn btn-outline-info">
                                     <i class="bi bi-person-check"></i> Unblock User
-                                </a>
+                                </a> --}}
                             </div>
                         </div>
                     </div>
@@ -111,12 +111,12 @@
                         </div>
                         <div class="card-body">
                             <div class="d-grid gap-2">
-                                <a href="{{route('admin.user_activity',$userProfile->id)}}" class="btn btn-outline-warning">
+                                {{-- <a href="{{route('admin.user_activity',$userProfile->id)}}" class="btn btn-outline-warning">
                                     <i class="bi bi-activity"></i> Activate ML Monitoring
                                 </a>
                                 <a href="{{route('admin.iuser_activity',$userProfile->id)}}" class="btn btn-outline-secondary">
                                     <i class="bi bi-eye-slash"></i> Deactivate ML Monitoring
-                                </a>
+                                </a> --}}
                                 <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModalCenter99">
                                     <i class="bi bi-envelope"></i> Update Email
                                 </button>

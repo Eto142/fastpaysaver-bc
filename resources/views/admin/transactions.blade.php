@@ -1,111 +1,96 @@
-
 @include('admin.header')
 @include('admin.navbar')
-				<!-- Sidebar wrapper end -->
 
-				<!-- Content wrapper scroll start -->
-				<div class="content-wrapper-scroll">
+<!-- Page Header -->
+<div class="page-header">
+    <div>
+        <nav class="breadcrumb">
+            <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+            <span class="separator">/</span>
+            <span class="current">Transactions</span>
+        </nav>
+        <h1 class="page-title">Manage Transactions</h1>
+        <p class="page-subtitle">View and manage all user transactions</p>
+    </div>
+    <div class="page-header-actions">
+        <a href="{{ route('admin.dashboard') }}" class="btn-admin btn-admin-secondary">
+            <i class="bi bi-arrow-left"></i>
+            Back to Dashboard
+        </a>
+    </div>
+</div>
 
-					<!-- Main header starts -->
-					<div class="main-header d-flex align-items-center justify-content-between position-relative">
-						<div class="d-flex align-items-center justify-content-center">
-							<div class="page-icon">
-								<i class="bi bi-window-split"></i>
-							</div>
-							<div class="page-title d-none d-md-block">
-								<h5>Data Tables</h5>
-							</div>
-						</div>
-						<!-- Live updates start -->
-						<ul class="updates d-flex align-items-end flex-column overflow-hidden" id="updates">
-							<li>
-								<a href="javascript:void(0)">
-									<i class="bi bi-envelope-paper text-red font-1x me-2"></i>
-									<span>12 emails from David Michaiah.</span>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">
-									<i class="bi bi-bar-chart text-blue font-1x me-2"></i>
-									<span>15 new features updated successfully.</span>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">
-									<i class="bi bi-folder-check text-yellow font-1x me-2"></i>
-									<span>The media folder is created successfully.</span>
-								</a>
-							</li>
-						</ul>
-						<!-- Live updates end -->
-					</div>
-					<!-- Main header ends -->
+<!-- Transactions Table -->
+<div class="admin-card">
+    <div class="admin-card-header">
+        <h3 class="admin-card-title">
+            <i class="bi bi-arrow-left-right"></i>
+            Transaction History
+        </h3>
+        <span style="color: var(--admin-text-muted); font-size: 14px;">
+            {{ count($user_transactions) }} transactions found
+        </span>
+    </div>
+    
+    <div class="admin-card-body" style="padding: 0;">
+        <div class="admin-table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($user_transactions as $transaction)
+                    <tr>
+                        <td>
+                            <span style="font-family: monospace; font-size: 13px;">{{ $transaction->transaction_ref }}</span>
+                        </td>
+                        <td>
+                            <span class="status-badge" style="background: rgba(99, 102, 241, 0.15); color: var(--admin-primary);">
+                                {{ $transaction->transaction_type }}
+                            </span>
+                        </td>
+                        <td style="max-width: 200px;">{{ $transaction->transaction_description }}</td>
+                        <td>
+                            <strong>{{ number_format($transaction->transaction_amount, 2) }}</strong>
+                        </td>
+                        <td>
+                            @if($transaction->transaction_status == '1')
+                                <span class="status-badge active">Completed</span>
+                            @elseif($transaction->transaction_status == '0')
+                                <span class="status-badge pending">Pending</span>
+                            @elseif($transaction->transaction_status == '2')
+                                <span class="status-badge inactive">Failed</span>
+                            @endif
+                        </td>
+                        <td>
+                            <div>{{ \Carbon\Carbon::parse($transaction->created_at)->format('M j, Y') }}</div>
+                            <small style="color: var(--admin-text-muted);">{{ \Carbon\Carbon::parse($transaction->created_at)->format('g:i A') }}</small>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="6">
+                            <div class="empty-state">
+                                <div class="empty-state-icon">
+                                    <i class="bi bi-arrow-left-right"></i>
+                                </div>
+                                <div class="empty-state-title">No transactions found</div>
+                                <div class="empty-state-text">There are no transactions yet.</div>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-					<!-- Content wrapper start -->
-					<div class="content-wrapper">
-
-						<!-- Row start -->
-						<div class="row gx-3">
-							<div class="col-sm-12 col-12">
-								<!-- Card start -->
-								<div class="card">
-									<div class="card-header">
-										<div class="card-title">Transaction History</div>
-									</div>
-									<div class="card-body">
-										<div class="table-responsive">
-											<table id="highlightRowColumn" class="table custom-table">
-												<thead>
-													<tr>
-														<th>Transaction ID</th>
-														<th>Transaction Type</th>
-														<th>Description</th>
-														<th>Amount</th>
-														<th>Status</th>
-														<th>Date</th>
-														
-													</tr>
-												</thead>
-												<tbody>
-												
-												@foreach($user_transactions as $transaction)
-												<tr>
-												
-												<td>{{$transaction->transaction_ref}}</td>
-												<td>{{$transaction->transaction_type}}</td>
-												<td>{{$transaction->transaction_description}}</td>
-												<td>{{number_format($transaction->transaction_amount, 2, '.', ',')}}</td>
-												<td>
-												@if ($transaction->transaction_status == '1')
-												<span class="badge shade-light-green">Completed</span>
-												@elseif($transaction->transaction_status == '0')
-												<span class="badge shade-light-red">Pending</span>
-												@endif
-											    </td>
-												<td>{{ \Carbon\Carbon::parse($transaction->created_at)->format('D, M j, Y g:i A') }}</td>
-											
-												</tr>
-												@endforeach
-											
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-								<!-- Card end -->
-
-						
-
-						
-								<!-- Card end -->
-
-								<!-- Card end -->
-							</div>
-						</div>
-				
-						</div>
-				<!-- Content wrapper scroll end -->
-
-				
-
-				@include('admin.footer')
+@include('admin.footer')

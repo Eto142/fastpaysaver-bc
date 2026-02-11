@@ -1,112 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <!-- Required meta tags -->
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-    <!-- Meta -->
-    <meta name="description" content="Best Bootstrap Admin Dashboards" />
-    <meta name="author" content="Bootstrap Gallery" />
-    <link rel="canonical" href="https://www.bootstrap.gallery/">
-    <meta property="og:url" content="https://www.bootstrap.gallery">
-    <meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
-    <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
-    <meta property="og:type" content="Website">
-    <meta property="og:site_name" content="Bootstrap Gallery">
+    <meta name="description" content="FastPay Saver Admin Dashboard" />
+    <meta name="author" content="FastPay Saver" />
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.svg')}}" />
+    <title>Admin Dashboard - FastPay Saver</title>
 
-    <!-- Title -->
-    <title>Admin Dashboards</title>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- *************
-      ************ Common Css Files *************
-    ************ -->
-    <!-- Bootstrap css -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}" />
+    <!-- Bootstrap CSS (for modals and components) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap font icons css -->
-    <link rel="stylesheet" href="{{asset('admin/assets/fonts/bootstrap/bootstrap-icons.css')}}" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- Main css -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/main.min.css')}}" />
+    <!-- Modern Admin CSS (loads after Bootstrap to override) -->
+    <link rel="stylesheet" href="{{asset('admin/assets/css/admin-modern.css')}}" />
 
-    <!-- *************
-      ************ Vendor Css Files *************
-    ************ -->
+    @stack('styles')
+</head>
 
-    <!-- Scrollbar CSS -->
-    <link rel="stylesheet" href="{{asset('admin/assets/vendor/overlay-scroll/OverlayScrollbars.min.css')}}" />
-  </head>
+<body>
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <body>
-
-    <!-- Page wrapper start -->
-    <div class="page-wrapper">
-
-      <!-- Page header starts -->
-      <div class="page-header">
-
-        <div class="toggle-sidebar" id="toggle-sidebar">
-          <i class="bi bi-list"></i>
-        </div>
-
-        <!-- Header actions ccontainer start -->
-        <div class="header-actions-container">
-
-          <!-- Search container start -->
-          <div class="search-container me-4 d-xl-block d-lg-none">
-
-            <!-- Search input group start -->
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search" />
-              <button class="btn btn-outline-secondary" type="button">
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="header-left">
+            <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Toggle sidebar">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <div class="header-search">
                 <i class="bi bi-search"></i>
-              </button>
+                <input type="text" placeholder="Search users, transactions..." />
             </div>
-            <!-- Search input group end -->
-
-          </div>
-          <!-- Search container end -->
-
-          <!-- Header actions start -->
-         
-          <!-- Header actions start -->
-
-          <!-- Header profile start -->
-          <div class="header-profile d-flex align-items-center">
-            <div class="dropdown">
-              <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-                <span class="user-name d-none d-md-block">Admin</span>
-                <span class="avatar">
-                  <img src="{{asset('admin/assets/images/user7.png" alt="Admin Templates')}}" />
-                  <span class="status online"></span>
-                </span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
-                <div class="header-profile-actions">
-                  {{-- <a href="#">Profile</a>
-                  <a href="#">Settings</a> --}}
-                  <li>
-  <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-    <i class="bi bi-emoji-expressionless"></i>
-    <span class="menu-text">Logout</span>
-  </a>
-
-  <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-    @csrf
-  </form>
-</li>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Header profile end -->
-
         </div>
-        <!-- Header actions ccontainer end -->
 
-      </div>
-      <!-- Page header ends -->
+        <div class="header-right">
+            <button class="header-icon-btn" type="button" aria-label="Notifications">
+                <i class="bi bi-bell"></i>
+                <span class="badge"></span>
+            </button>
+
+            <div class="header-profile" id="profileDropdownToggle">
+                <div class="avatar">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="profile-info">
+                    <span class="profile-name">Administrator</span>
+                    <span class="profile-role">Super Admin</span>
+                </div>
+                <i class="bi bi-chevron-down dropdown-icon"></i>
+
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-header">
+                        <div class="name">Administrator</div>
+                        <div class="email">admin@fastpaysaverbc.com</div>
+                    </div>
+                    <a href="{{ route('admin.change.password') }}" class="dropdown-item">
+                        <i class="bi bi-key"></i>
+                        <span>Change Password</span>
+                    </a>
+                    <a href="https://fastpaysaverbc.com/" class="dropdown-item" target="_blank">
+                        <i class="bi bi-globe"></i>
+                        <span>Visit Site</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </a>
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>

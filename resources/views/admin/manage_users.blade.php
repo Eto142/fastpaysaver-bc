@@ -1,113 +1,100 @@
 @include('admin.header')
 @include('admin.navbar')
-<!-- Sidebar wrapper end -->
 
-<!-- Content wrapper scroll start -->
-<div class="content-wrapper-scroll">
-
-	<!-- Main header starts -->
-	<div class="main-header d-flex align-items-center justify-content-between position-relative">
-		<div class="d-flex align-items-center justify-content-center">
-			<div class="page-icon">
-				<i class="bi bi-window-split"></i>
-			</div>
-			<div class="page-title d-none d-md-block">
-				<h5>Data Tables</h5>
-			</div>
-		</div>
-		<!-- Live updates start -->
-		<ul class="updates d-flex align-items-end flex-column overflow-hidden" id="updates">
-		
-		</ul>
-		<!-- Live updates end -->
-	</div>
-	<!-- Main header ends -->
-
-	<!-- Content wrapper start -->
-	<div class="content-wrapper">
-
-		<!-- Row start -->
-		<div class="row gx-3">
-			<div class="col-sm-12 col-12">
-				<!-- Card start -->
-				<div class="card">
-					<div class="card-header">
-						<div class="card-title">All Users</div>
-					</div>
-
-					@if(session('success'))
-    <div class="alert alert-success alert-dismissible fade show mt-2 mx-3" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<!-- Page Header -->
+<div class="page-header">
+    <div>
+        <nav class="breadcrumb">
+            <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+            <span class="separator">/</span>
+            <span class="current">Manage Users</span>
+        </nav>
+        <h1 class="page-title">Manage Users</h1>
+        <p class="page-subtitle">View and manage all registered users</p>
     </div>
-@endif
-
-@if(session('error'))
-    <div class="alert alert-danger alert-dismissible fade show mt-2 mx-3" role="alert">
-        {{ session('error') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div class="page-header-actions">
+        <a href="{{ route('admin.dashboard') }}" class="btn-admin btn-admin-secondary">
+            <i class="bi bi-arrow-left"></i>
+            Back to Dashboard
+        </a>
     </div>
-@endif
-					<div class="card-body">
-						<div class="table-responsive">
-							<table id="highlightRowColumn" class="table custom-table">
-								<thead>
-									<tr>
-										<th>Full Name</th>
+</div>
 
-										<th>Registered Date</th>
-										<th>View User</th>
-										<th>Send Mail</th>
-										<th>Delete User</th>
+<!-- Users Table -->
+<div class="admin-card">
+    <div class="admin-card-header">
+        <h3 class="admin-card-title">
+            <i class="bi bi-people-fill"></i>
+            All Users
+        </h3>
+        <span style="color: var(--admin-text-muted); font-size: 14px;">
+            {{ count($result) }} users found
+        </span>
+    </div>
+    
+    <div class="admin-card-body" style="padding: 0;">
+        <div class="admin-table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Registration Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($result as $transaction)
+                    <tr>
+                        <td>
+                            <div class="user-cell">
+                                <div class="user-avatar">
+                                    <span class="initials">{{ strtoupper(substr($transaction->first_name, 0, 1)) }}{{ strtoupper(substr($transaction->last_name ?? '', 0, 1)) }}</span>
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">{{ $transaction->first_name }} {{ $transaction->last_name ?? '' }}</div>
+                                    <div class="user-email">{{ $transaction->email ?? 'No email' }}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>{{ \Carbon\Carbon::parse($transaction->created_at)->format('M j, Y') }}</div>
+                            <small style="color: var(--admin-text-muted);">{{ \Carbon\Carbon::parse($transaction->created_at)->format('g:i A') }}</small>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <a href="{{ route('admin.profile', $transaction->id) }}" class="action-btn view" title="View Profile">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a href="{{ route('admin.send-user-mail', $transaction->id) }}" class="action-btn email" title="Send Email">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                                <form action="{{ route('admin.delete', $transaction->id) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="action-btn delete" title="Delete User" onclick="return confirm('Are you sure you want to delete this user?')">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="3">
+                            <div class="empty-state">
+                                <div class="empty-state-icon">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <div class="empty-state-title">No users found</div>
+                                <div class="empty-state-text">There are no registered users yet.</div>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-
-									</tr>
-								</thead>
-								<tbody>
-
-									@foreach($result as $transaction)
-									<tr>
-
-										<td>{{$transaction->first_name}}</td>
-
-
-										<td>{{ \Carbon\Carbon::parse($transaction->created_at)->format('D, M j, Y g:i
-											A') }}</td>
-
-										<td><a href="{{ route('admin.profile', $transaction->id) }}"><span
-													class="badge shade-blue">View User</span></a></td>
-										<td><a href="{{route('admin.send-user-mail',$transaction->id)}}"><span
-													class="badge shade-green">Send Mail</span></a></td>
-										<td> <form action="{{route('admin.delete', $transaction->id) }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-outline-danger rounded-circle" style="width: 32px; height: 32px;" data-bs-toggle="tooltip" title="Delete User" onclick="return confirm('Are you sure you want to delete this user?')">
-                          <i class="bi bi-trash"></i>
-                        </button>
-                      </form></td>
-
-									</tr>
-									@endforeach
-
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-				<!-- Card end -->
-
-
-
-
-				<!-- Card end -->
-
-				<!-- Card end -->
-			</div>
-		</div>
-
-	</div>
-	<!-- Content wrapper scroll end -->
-
-
-
-	@include('admin.footer')
+@include('admin.footer')

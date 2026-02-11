@@ -971,7 +971,7 @@ body.sidebar-collapsed .main-wrapper {
 }
 
 /* ---------- Stat value size variants ---------- */
-.stat-value-sm { font-size: 16px; font-weight: 700; line-height: 1.2; }
+.stat-value-sm { font-size: 16px; font-weight: 700; line-height: 1.2; word-break: break-word; }
 .stat-value-xs { font-size: 13px; font-weight: 700; line-height: 1.2; }
 .stat-value-email {
     font-size: 12px;
@@ -986,6 +986,32 @@ body.sidebar-collapsed .main-wrapper {
     -webkit-box-orient: vertical;
 }
 .stat-card-text { overflow: hidden; min-width: 0; flex: 1; }
+
+/* Tablet/Laptop view adjustments (768px - 1399px) - stack stat cards vertically */
+@media (min-width: 768px) and (max-width: 1399.98px) {
+    .stat-card { 
+        padding: 14px !important; 
+        gap: 10px !important; 
+        flex-direction: column !important; 
+        align-items: flex-start !important; 
+        text-align: left !important; 
+    }
+    .stat-card .stat-icon { 
+        width: 36px !important; 
+        height: 36px !important; 
+        font-size: 16px !important; 
+    }
+    .stat-card .stat-value-sm { 
+        font-size: 13px !important; 
+    }
+    .stat-card .stat-label { 
+        font-size: 11px !important; 
+    }
+    .stat-card .stat-value-email { 
+        font-size: 10px !important; 
+        -webkit-line-clamp: 1 !important;
+    }
+}
 
 /* ---------- Loan stat icon colour variants ---------- */
 .stat-icon.accent  { background: rgba(37,99,235,.1); color: var(--accent); }

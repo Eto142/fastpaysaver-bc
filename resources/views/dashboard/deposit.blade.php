@@ -23,8 +23,8 @@
 
 {{-- Row 2  Balance + Stats --}}
 <div class="row g-3 mb-4">
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="balance-card">
+    <div class="col-12 col-lg-5 col-xl-4">
+        <div class="balance-card h-100">
             <div class="d-flex justify-content-between align-items-start">
                 <div>
                     <div class="label">Available Balance</div>
@@ -38,48 +38,39 @@
         </div>
     </div>
 
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="row g-3 h-100">
-            <div class="col-6">
-                <div class="stat-card h-100">
-                    <div class="stat-icon blue"><i class="bi bi-person-fill"></i></div>
-                    <div class="stat-card-text">
-                        <div class="stat-label">Account Owner</div>
-                        <div class="stat-value stat-value-sm">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="stat-card h-100">
-                    <div class="stat-icon green"><i class="bi bi-hash"></i></div>
-                    <div class="stat-card-text">
-                        <div class="stat-label">Account No.</div>
-                        <div class="stat-value stat-value-sm">{{ Auth::user()->a_number }}</div>
-                    </div>
-                </div>
+    <div class="col-6 col-lg-auto col-xl-2">
+        <div class="stat-card h-100">
+            <div class="stat-icon blue"><i class="bi bi-person-fill"></i></div>
+            <div class="stat-card-text">
+                <div class="stat-label">Account Owner</div>
+                <div class="stat-value stat-value-sm">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</div>
             </div>
         </div>
     </div>
-
-    <div class="col-12 col-lg-4">
-        <div class="row g-3 h-100">
-            <div class="col-6">
-                <div class="stat-card h-100">
-                    <div class="stat-icon yellow"><i class="bi bi-bank"></i></div>
-                    <div class="stat-card-text">
-                        <div class="stat-label">Account Type</div>
-                        <div class="stat-value stat-value-sm">{{ Auth::user()->account_type }}</div>
-                    </div>
-                </div>
+    <div class="col-6 col-lg-auto col-xl-2">
+        <div class="stat-card h-100">
+            <div class="stat-icon green"><i class="bi bi-hash"></i></div>
+            <div class="stat-card-text">
+                <div class="stat-label">Account No.</div>
+                <div class="stat-value stat-value-sm">{{ Auth::user()->a_number }}</div>
             </div>
-            <div class="col-6">
-                <div class="stat-card h-100">
-                    <div class="stat-icon red"><i class="bi bi-envelope-fill"></i></div>
-                    <div class="stat-card-text">
-                        <div class="stat-label">Email</div>
-                        <div class="stat-value stat-value-email" title="{{ Auth::user()->email }}">{{ Auth::user()->email }}</div>
-                    </div>
-                </div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-auto col-xl-2">
+        <div class="stat-card h-100">
+            <div class="stat-icon yellow"><i class="bi bi-bank"></i></div>
+            <div class="stat-card-text">
+                <div class="stat-label">Account Type</div>
+                <div class="stat-value stat-value-sm">{{ Auth::user()->account_type }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-auto col-xl-2">
+        <div class="stat-card h-100">
+            <div class="stat-icon red"><i class="bi bi-envelope-fill"></i></div>
+            <div class="stat-card-text">
+                <div class="stat-label">Email</div>
+                <div class="stat-value stat-value-email" title="{{ Auth::user()->email }}">{{ Auth::user()->email }}</div>
             </div>
         </div>
     </div>

@@ -1,63 +1,76 @@
 
-        <!-- App Footer start -->
-        <div class="app-footer">
-          <span>© Fast Pay Saver Banking Corporation 2025</span>
         </div>
-        <!-- App footer end -->
+        <!-- Admin Content End -->
+    </main>
+    <!-- Main End -->
 
-      </div>
-      <!-- Main container end -->
-
-    </div>
-    <!-- Page wrapper end -->
-
-    <!-- *************
-      ************ Required JavaScript Files *************
-    ************* -->
-    <!-- Required jQuery first, then Bootstrap Bundle JS -->
+    <!-- JavaScript -->
     <script src="{{asset('admin/assets/js/jquery.min.js')}}"></script>
     <script src="{{asset('admin/assets/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('admin/assets/js/modernizr.js')}}"></script>
-    <script src="{{asset('admin/assets/js/moment.js')}}"></script>
 
-    <!-- *************
-      ************ Vendor Js Files *************
-    ************* -->
+    <!-- Admin Scripts -->
+    <script>
+        // Sidebar Toggle
+        const sidebar = document.getElementById('adminSidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-    <!-- Overlay Scroll JS -->
-    <script src="{{asset('admin/assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/overlay-scroll/custom-scrollbar.js')}}"></script>
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                if (window.innerWidth <= 992) {
+                    sidebar.classList.toggle('mobile-open');
+                } else {
+                    sidebar.classList.toggle('collapsed');
+                }
+            });
+        }
 
-    <!-- News ticker -->
-    <script src="{{asset('admin/assets/vendor/newsticker/newsTicker.min.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/newsticker/custom-newsTicker.js')}}"></script>
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('mobile-open');
+            });
+        }
 
-    <!-- Apex Charts -->
-    <script src="{{asset('admin/assets/vendor/apex/apexcharts.min.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/apex/custom/dash2/revenue.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/apex/custom/dash2/analytics.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/apex/custom/dash2/sparkline.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/apex/custom/dash2/sales.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/apex/custom/dash2/reports.js')}}"></script>
+        // Profile Dropdown Toggle
+        const profileToggle = document.getElementById('profileDropdownToggle');
+        const profileDropdown = document.getElementById('profileDropdown');
 
-    <!-- Vector Maps -->
-    <script src="{{asset('admin/assets/vendor/jvectormap/jquery-jvectormap-2.0.5.min.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/jvectormap/world-mill-en.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/jvectormap/gdp-data.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/jvectormap/continents-mill.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/jvectormap/custom/world-map-markers4.js')}}"></script>
+        if (profileToggle && profileDropdown) {
+            profileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                profileDropdown.classList.toggle('show');
+            });
 
-    <!-- Rating JS -->
-    <script src="{{asset('admin/assets/vendor/rating/raty.js')}}"></script>
-    <script src="{{asset('admin/assets/vendor/rating/raty-custom.js')}}"></script>
+            document.addEventListener('click', (e) => {
+                if (!profileToggle.contains(e.target)) {
+                    profileDropdown.classList.remove('show');
+                }
+            });
+        }
 
-    		<!-- Data Tables -->
-		<script src="{{asset('admin/assets/vendor/datatables/dataTables.min.js')}}"></script>
-		<script src="{{asset('admin/assets/vendor/datatables/dataTables.bootstrap.min.js')}}"></script>
-		<script src="{{asset('admin/assets/vendor/datatables/custom/custom-datatables.js')}}"></script>
+        // Auto-dismiss alerts after 5 seconds
+        document.querySelectorAll('.admin-alert').forEach(alert => {
+            setTimeout(() => {
+                alert.style.opacity = '0';
+                alert.style.transform = 'translateY(-10px)';
+                setTimeout(() => alert.remove(), 300);
+            }, 5000);
+        });
 
-    <!-- Main Js Required -->
-    <script src="{{asset('admin/assets/js/main.js')}}"></script>
-  </body>
+        // Responsive table data labels
+        document.querySelectorAll('.admin-table').forEach(table => {
+            const headers = Array.from(table.querySelectorAll('th')).map(th => th.textContent.trim());
+            table.querySelectorAll('tbody tr').forEach(row => {
+                row.querySelectorAll('td').forEach((cell, index) => {
+                    if (headers[index]) {
+                        cell.setAttribute('data-label', headers[index]);
+                    }
+                });
+            });
+        });
+    </script>
+
+    @stack('scripts')
+</body>
 
 </html>

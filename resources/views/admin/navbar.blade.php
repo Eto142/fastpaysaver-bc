@@ -1,127 +1,131 @@
-    <!-- partial -->
-    <!-- Main container start -->
-      <div class="main-container">
-
-        <!-- Sidebar wrapper start -->
-        <nav class="sidebar-wrapper">
-
-          <!-- Sidebar brand starts -->
-          <div class="brand">
-            <a href="{{route('admin.dashboard')}}" class="logo">
-              <img src="{{asset('logo1.png')}}" class="d-none d-md-block me-4" alt="Rapid Admin Dashboard" />
-              <img src="{{asset('logo1.png')}}" class="d-block d-md-none me-4" alt="Rapid Admin Dashboard" />
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+        <!-- Sidebar Brand -->
+        <div class="sidebar-brand">
+            <a href="{{route('admin.dashboard')}}" class="brand-logo">
+                <i class="bi bi-shield-check"></i>
             </a>
-          </div>
-          <!-- Sidebar brand ends -->
-
-          <!-- Sidebar menu starts -->
-          <div class="sidebar-menu">
-            <div class="sidebarMenuScroll">
-              <ul>
-                <li class="active-page-link">
-                  <a href="{{route('admin.dashboard')}}">
-                    <i class="bi bi-house"></i>
-                    <span class="menu-text">Dashboard</span>
-                  </a>
-                </li>
-                
-                 <li>
-            <a href="{{route('admin.wallet')}}">
-              <i class="bi bi-box"></i>
-              <span class="menu-text">Update Wallet</span>
-            </a>
-          </li>
-                <li>
-                  <a href="{{route('admin.manage.users')}}">
-                    <i class="bi bi-box"></i>
-                    <span class="menu-text"> Manage Users</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{route('admin.user.loans')}}">
-                    <i class="bi bi-cash-stack"></i>
-                    <span class="menu-text"> Manage Loans</span>
-                  </a>
-                </li>
-
-                                <li>
-                  <a href="{{route('admin.user.investment')}}">
-                    <i class="bi bi-cash-stack"></i>
-                    <span class="menu-text">Investments</span>
-                  </a>
-                </li>
-
-                                 <li>
-                  <a href="{{route('admin.user.cards')}}">
-                    <i class="bi bi-cash-stack"></i>
-                    <span class="menu-text">Cards</span>
-                  </a>
-                </li>
-                
-                <li>
-                  <a href="{{route('admin.user.transaction')}}">
-                    <i class="bi bi-calendar4"></i>
-                    <span class="menu-text">Manage Transactions</span>
-                  </a>
-                </li>
-                
-                
-                <li>
-                  <a href="{{route('admin.change.password')}}">
-                    <i class="bi bi-emoji-expressionless"></i>
-                    <span class="menu-text">Change Password</span>
-                  </a>
-                </li>
-                
-                <li>
-                  <a href="{{route('admin.user.mail')}}">
-                    <i class="bi bi-code-square"></i>
-                    <span class="menu-text">Send Email</span>
-                  </a>
-                </li>
-                
-                  <li>
-                  <a href="https://fastpaysaverbc.com/">
-                    <i class="bi bi-globe"></i>
-                    <span class="menu-text">Visit Site</span>
-                  </a>
-                </li>
-
-                <li>
-  <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-    <i class="bi bi-emoji-expressionless"></i>
-    <span class="menu-text">Logout</span>
-  </a>
-
-  <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-    @csrf
-  </form>
-</li>
-
-
-                
-              </ul>
+            <div class="brand-text">
+                <span class="brand-name">FastPay Saver</span>
+                <span class="brand-tagline">Admin Panel</span>
             </div>
-          </div>
-          <!-- Sidebar menu ends -->
+        </div>
 
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Main Menu</div>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li class="nav-item">
+                        <a href="{{route('admin.dashboard')}}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                            <i class="bi bi-grid-1x2-fill"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.wallet')}}" class="nav-link {{ request()->routeIs('admin.wallet') ? 'active' : '' }}">
+                            <i class="bi bi-wallet2"></i>
+                            <span class="nav-text">Update Wallet</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.manage.users')}}" class="nav-link {{ request()->routeIs('admin.manage.users') ? 'active' : '' }}">
+                            <i class="bi bi-people-fill"></i>
+                            <span class="nav-text">Manage Users</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Financial</div>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li class="nav-item">
+                        <a href="{{route('admin.user.loans')}}" class="nav-link {{ request()->routeIs('admin.user.loans') ? 'active' : '' }}">
+                            <i class="bi bi-cash-stack"></i>
+                            <span class="nav-text">Manage Loans</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.user.cards')}}" class="nav-link {{ request()->routeIs('admin.user.cards') ? 'active' : '' }}">
+                            <i class="bi bi-credit-card-2-front-fill"></i>
+                            <span class="nav-text">Cards</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.user.transaction')}}" class="nav-link {{ request()->routeIs('admin.user.transaction') ? 'active' : '' }}">
+                            <i class="bi bi-arrow-left-right"></i>
+                            <span class="nav-text">Transactions</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Settings</div>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li class="nav-item">
+                        <a href="{{route('admin.user.mail')}}" class="nav-link {{ request()->routeIs('admin.user.mail') ? 'active' : '' }}">
+                            <i class="bi bi-envelope-fill"></i>
+                            <span class="nav-text">Send Email</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.change.password')}}" class="nav-link {{ request()->routeIs('admin.change.password') ? 'active' : '' }}">
+                            <i class="bi bi-key-fill"></i>
+                            <span class="nav-text">Change Password</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://fastpaysaverbc.com/" class="nav-link" target="_blank">
+                            <i class="bi bi-globe"></i>
+                            <span class="nav-text">Visit Site</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </nav>
-        <!-- Sidebar wrapper end -->
-                @if (session('error'))
-                              <div class="alert box-bdr-red alert-dismissible fade show text-red" role="alert">
-															<b>Error!</b>{{ session('error') }}
-											<button type="button" class="btn-close" data-bs-dismiss="alert"
-																aria-label="Close"></button>
-									</div>
-                                    @elseif (session('status'))
-									<div class="alert box-bdr-green alert-dismissible fade show text-green" role="alert">
-															<b>Success!</b> {{ session('status') }}
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-									</div>
-									    @elseif (session('message'))
-									<div class="alert box-bdr-green alert-dismissible fade show text-green" role="alert">
-															<b>Success!</b> {{ session('message') }}
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-									</div>
-                                  @endif
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-content">
+                <div class="admin-avatar">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="admin-info">
+                    <div class="admin-name">Administrator</div>
+                    <div class="admin-role">Super Admin</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <main class="admin-main">
+        <div class="admin-content">
+            <!-- Alerts -->
+            @if (session('error'))
+                <div class="admin-alert admin-alert-error">
+                    <i class="admin-alert-icon bi bi-exclamation-circle-fill"></i>
+                    <div class="admin-alert-content">
+                        <div class="admin-alert-title">Error</div>
+                        <div class="admin-alert-message">{{ session('error') }}</div>
+                    </div>
+                </div>
+            @elseif (session('status'))
+                <div class="admin-alert admin-alert-success">
+                    <i class="admin-alert-icon bi bi-check-circle-fill"></i>
+                    <div class="admin-alert-content">
+                        <div class="admin-alert-title">Success</div>
+                        <div class="admin-alert-message">{{ session('status') }}</div>
+                    </div>
+                </div>
+            @elseif (session('message'))
+                <div class="admin-alert admin-alert-success">
+                    <i class="admin-alert-icon bi bi-check-circle-fill"></i>
+                    <div class="admin-alert-content">
+                        <div class="admin-alert-title">Success</div>
+                        <div class="admin-alert-message">{{ session('message') }}</div>
+                    </div>
+                </div>
+            @endif

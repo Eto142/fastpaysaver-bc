@@ -25,7 +25,7 @@
         <p class="text-muted mb-0 small">Here's your financial overview for today, {{ now()->format('F d, Y') }}</p>
     </div>
     <div class="d-flex gap-2">
-        <a href="{{ route('deposit') }}" class="btn btn-primary btn-sm"><i class="bi bi-plus-circle me-1"></i>Fund Account</a>
+        <a href="{{ route('deposit') }}" class="btn btn-primary btn-sm"><i class="bi bi-plus-circle me-1"></i>Deposit</a>
         <a href="{{ route('bank') }}" class="btn btn-outline-primary btn-sm"><i class="bi bi-send me-1"></i>Transfer</a>
     </div>
 </div>
@@ -54,9 +54,9 @@
         <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
             <div class="d-flex flex-column align-items-lg-end gap-2">
                 @if(Auth::user()->kyc_status == '1')
-                    <span class="hero-badge verified"><i class="bi bi-patch-check-fill me-1"></i>Verified Account</span>
+                    <span class="hero-badge verified"><i class="bi bi-patch-check-fill me-1"></i>Kyc Verified</span>
                 @else
-                    <span class="hero-badge unverified"><i class="bi bi-exclamation-circle me-1"></i>Unverified Account</span>
+                    <span class="hero-badge unverified"><i class="bi bi-exclamation-circle me-1"></i>Kyc Unverified</span>
                 @endif
                 <span class="hero-balance-date"><i class="bi bi-clock me-1"></i>Last updated: {{ now()->format('h:i A') }}</span>
             </div>
@@ -99,7 +99,7 @@
         <div class="stat-card">
             <div class="stat-icon yellow"><i class="bi bi-graph-up-arrow"></i></div>
             <div>
-                <div class="stat-label">Investments</div>
+                <div class="stat-label">Loans</div>
                 <div class="stat-value">{{ $trades->count() }}</div>
             </div>
         </div>
@@ -108,7 +108,7 @@
 
 {{-- Row 3 — Quick Actions --}}
 <div class="quick-actions mb-4">
-    <a href="{{ route('deposit') }}" class="qa-btn"><i class="bi bi-plus-circle"></i> Fund Account</a>
+    <a href="{{ route('deposit') }}" class="qa-btn"><i class="bi bi-plus-circle"></i> Deposit</a>
     <a href="{{ route('bank') }}" class="qa-btn"><i class="bi bi-send"></i> Transfer</a>
     {{-- <a href="{{ route('cfx') }}" class="qa-btn"><i class="bi bi-currency-exchange"></i> Forex</a> --}}
     <a href="{{ route('cryptopage') }}" class="qa-btn"><i class="bi bi-currency-bitcoin"></i> Crypto</a>

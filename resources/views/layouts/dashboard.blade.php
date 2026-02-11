@@ -81,9 +81,9 @@
             <li class="sidebar-nav-item {{ request()->routeIs('transactions') ? 'active' : '' }}">
                 <a href="{{ route('transactions') }}"><i class="bi bi-clock-history"></i><span>Transactions</span></a>
             </li>
-            <li class="sidebar-nav-item {{ request()->routeIs('bankstatement') ? 'active' : '' }}">
+            {{-- <li class="sidebar-nav-item {{ request()->routeIs('bankstatement') ? 'active' : '' }}">
                 <a href="{{ route('bankstatement') }}"><i class="bi bi-file-earmark-text"></i><span>Bank Statement</span></a>
-            </li>
+            </li> --}}
 
             <li class="sidebar-nav-label">ACCOUNT</li>
 
@@ -165,6 +165,18 @@
         @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @endif
+        @if(session('status'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('status') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @endif
+        @if(session('message'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('message') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
