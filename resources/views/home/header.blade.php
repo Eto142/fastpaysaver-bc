@@ -100,7 +100,7 @@
     <a href="{{ route('register') }}" class="bk-btn bk-btn--fill bk-btn--block">Open Account</a>
   </div>
   <div class="bk-drawer-info">
-    <p><i class="ri-phone-line"></i> +44 770 142 3168</p>
+    {{-- <p><i class="ri-phone-line"></i> +44 770 142 3168</p> --}}
     <p><i class="ri-mail-line"></i> support@fastpaysaverbc.com</p>
   </div>
 </div>
@@ -109,4 +109,24 @@
 <div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings={default_language:"en",detect_browser_language:true,wrapper_selector:".gtranslate_wrapper",alt_flags:{en:"usa",pt:"brazil",es:"colombia",fr:"quebec"}};</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-<style>.gtranslate_wrapper{position:fixed!important;top:82px!important;right:16px!important;z-index:9999!important}@media(max-width:991px){.gtranslate_wrapper{top:58px!important}}@media(max-width:767px){.gtranslate_wrapper{top:50px!important;right:10px!important}}</style>
+<style>
+/* GTranslate — compact dark pill */
+.gtranslate_wrapper{position:fixed!important;bottom:20px!important;right:20px!important;top:auto!important;left:auto!important;z-index:9999!important}
+.gtranslate_wrapper .gt_float_switcher{background:#0c2340!important;border:none!important;border-radius:40px!important;padding:5px 12px 5px 8px!important;box-shadow:0 4px 16px rgba(12,35,64,.4)!important;transition:all .25s ease!important;font-family:'Inter',sans-serif!important;min-height:0!important}
+.gtranslate_wrapper .gt_float_switcher:hover{box-shadow:0 6px 24px rgba(12,35,64,.55)!important;transform:translateY(-1px)!important}
+.gtranslate_wrapper .gt_float_switcher .gt-current-lang{color:#fff!important;font-size:.72rem!important;font-weight:600!important;letter-spacing:.3px!important;text-transform:uppercase!important}
+.gtranslate_wrapper .gt_float_switcher img.gt-current-lang-image{border-radius:50%!important;box-shadow:0 0 0 1.5px rgba(255,255,255,.2)!important;width:18px!important;height:18px!important}
+.gtranslate_wrapper .gt_float_switcher .gt-selected .gt-lang-code{color:#fff!important}
+.gtranslate_wrapper .gt_float_switcher .gt_options{background:#0c2340!important;border:none!important;border-radius:10px!important;box-shadow:0 8px 32px rgba(0,0,0,.4)!important;padding:4px!important;margin-top:6px!important;max-height:200px!important;overflow-y:auto!important}
+.gtranslate_wrapper .gt_float_switcher .gt_options a{color:rgba(255,255,255,.75)!important;font-size:.72rem!important;font-weight:500!important;padding:6px 10px!important;border-radius:8px!important;transition:background .15s ease!important;display:flex!important;align-items:center!important;gap:6px!important;font-family:'Inter',sans-serif!important;background:transparent!important}
+.gtranslate_wrapper .gt_float_switcher .gt_options a:hover{background:rgba(21,101,192,.3)!important;color:#fff!important}
+.gtranslate_wrapper .gt_float_switcher .gt_options a img{border-radius:50%!important;width:16px!important;height:16px!important;box-shadow:none!important}
+.gtranslate_wrapper .gt_float_switcher .gt_options::-webkit-scrollbar{width:3px}
+.gtranslate_wrapper .gt_float_switcher .gt_options::-webkit-scrollbar-track{background:transparent}
+.gtranslate_wrapper .gt_float_switcher .gt_options::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
+/* Kill any white boxes GTranslate injects */
+.gt_float_switcher *{background-color:transparent!important}
+.gt_float_switcher,.gt_float_switcher .gt_options{background:#0c2340!important}
+@media(max-width:991px){.gtranslate_wrapper{bottom:18px!important;right:14px!important}}
+@media(max-width:767px){.gtranslate_wrapper{bottom:16px!important;right:10px!important}}
+</style>
