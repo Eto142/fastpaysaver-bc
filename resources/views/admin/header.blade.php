@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="FastPay Saver Admin Dashboard" />
-    <meta name="author" content="FastPay Saver" />
+    <meta name="description" content="Hollywood Vampires  Admin Dashboard" />
+    <meta name="author" content="Hollywood Vampires " />
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.svg')}}" />
-    <title>Admin Dashboard - FastPay Saver</title>
+    <title>Admin Dashboard - Hollywood Vampires </title>
 
     <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

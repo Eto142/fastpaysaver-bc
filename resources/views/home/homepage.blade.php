@@ -10,7 +10,7 @@
       <div class="bk-hero-bg" style="background-image:url('frontassets/images/banner/1.jpg')"></div>
       <div class="bk-wrap">
         <div class="bk-hero-body">
-          <span class="bk-hero-label">Welcome to Fast Pay Saver</span>
+          <span class="bk-hero-label">Welcome to Fast Pay Saver Banking Cooperation</span>
           <h1>Banking Made<br>Simple &amp; Secure</h1>
           <p>Experience seamless digital banking with industry-leading security. Send, save, and grow your finances with confidence.</p>
           <div class="bk-hero-actions">
