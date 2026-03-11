@@ -12,7 +12,7 @@
 <!-- Map -->
 <section class="bk-page-section" style="padding-bottom:0">
   <div class="bk-wrap">
-    <iframe class="bk-map sr" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.5!2d-3.205!3d51.48!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486e1c000000%3A0x0!2zQ2FudG9uLCBDYXJkaWZm!5e0!3m2!1sen!2suk!4v1" allowfullscreen loading="lazy"></iframe>
+    <iframe class="bk-map sr" src="https://www.google.com/maps?q=Bargate+Dr,+Wolverhampton,+West+Midlands+WV6+0QW,+United+Kingdom&output=embed" allowfullscreen loading="lazy"></iframe>
   </div>
 </section>
 
@@ -26,13 +26,13 @@
         <h2 class="bk-title" style="text-align:left;margin-bottom:16px">We'd Love to Hear From You</h2>
         <p style="font-size:.86rem;color:var(--txt-m);line-height:1.65;margin-bottom:24px">Whether you have a question about our services, need technical support, or want to open a new account  our team is ready to assist you.</p>
 
-        {{-- <div class="bk-feat-item">
+        <div class="bk-feat-item">
           <div class="bk-fi-icon"><i class="ri-map-pin-2-line"></i></div>
           <div>
             <h4>Our Address</h4>
-            <p>256 Cowbridge Road East, Cardiff CF11 9TN, United Kingdom</p>
+            <p>Bargate Dr. Wolverhampton West Midlands Wv6 0QW, United Kingdom</p>
           </div>
-        </div> --}}
+        </div>
         <div class="bk-feat-item">
           <div class="bk-fi-icon"><i class="ri-mail-line"></i></div>
           <div>
