@@ -17,7 +17,7 @@
     <div class="container">
         <div class="header">
             <a href="#">
-                <img src="https://fastpaysaverbc.com/logo1.png" alt="FastPay Saver Bank Logo" class="logo">
+                <img src="https://fastpaysaver-bc.com/logo1.png" alt="FastPay Saver Bank Logo" class="logo">
             </a>
         </div>
         <div class="content">
