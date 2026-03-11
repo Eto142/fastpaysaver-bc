@@ -50,7 +50,7 @@
         </div> --}}
         <div class="bk-footer-contact-item">
           <i class="ri-mail-line"></i>
-          <div><small>Email</small><p><a href="mailto:support@upwardsaverbc.com">support@upwardsaverbc.com</a></p></div>
+          <div><small>Email</small><p><a href="mailto:support@fastpaysaver-bc.com">support@fastpaysaver-bc.com</a></p></div>
         </div>
       </div>
     </div>
