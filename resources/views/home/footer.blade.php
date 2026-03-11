@@ -52,6 +52,10 @@
           <i class="ri-mail-line"></i>
           <div><small>Email</small><p><a href="mailto:support@fastpaysaver-bc.com">support@fastpaysaver-bc.com</a></p></div>
         </div>
+        <div class="bk-footer-contact-item">
+          <i class="ri-map-pin-line"></i>
+          <div><small>Address</small><p>Bargate Dr. Wolverhampton West Midlands Wv6 0QW, United Kingdom</p></div>
+        </div>
       </div>
     </div>
   </div>
