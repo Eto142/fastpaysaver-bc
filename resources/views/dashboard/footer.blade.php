@@ -21,9 +21,14 @@
         <i class="bi bi-box-arrow-right"></i><br><small>Logout</small>
       </button>
     </form>
+
   </div>
 </nav>
 
+<div class="text-center py-2 small text-muted">
+  Bargate Dr. Wolverhampton West Midlands Wv6 0QW, United Kingdom
+</div>
 
-                       <div class="gtranslate_wrapper"></div> <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","switcher_vertical_position":"top","alt_flags":{"en":"usa","pt":"brazil","es":"colombia","fr":"quebec"}}</script> <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-                    </div>
+
+                        <div class="gtranslate_wrapper"></div> <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","switcher_vertical_position":"top","alt_flags":{"en":"usa","pt":"brazil","es":"colombia","fr":"quebec"}}</script> <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+                      </div>

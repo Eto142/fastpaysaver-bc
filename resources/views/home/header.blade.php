@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Fast Pay Saver Banking Corporation — Secure, modern digital banking for personal and business needs.">
 <meta name="keywords" content="Bank, Fast Pay Saver Banking Corporation, Internet Banking, Digital Banking, Savings, Loans">
-<meta property="og:description" content="Fast Pay Saver Banking Corporation — Banking made simple, secure, and smart.">
-<meta property="og:site_name" content="Fast Pay Saver Banking Corporation">
+<meta property="og:description" content="Fast Pay SaverBanking Corporation — Banking made simple, secure, and smart.">
+<meta property="og:site_name" content="Fast Pay SaverBanking Corporation">
 <link rel="canonical" href="/">
 <title>Fast Pay Saver Banking Corporation</title>
 <link rel="icon" type="image/png" href="storage/app/public/photos/SogsHXqU6Y0ICRb6DyZgVRWFyDOm44mgql9lWKwW.png">
@@ -63,7 +63,7 @@
   <div class="bk-wrap">
     <div class="bk-header-row">
      <a href="/" class="bk-logo">
-  <img src="logo1.png" alt="Fast Pay Saver Banking Corporation" style="height:40px; width:auto;">
+  <img src="logo1.png" alt="Fast Pay SaverBanking Corporation" style="height:40px; width:auto;">
 </a>
 
 
@@ -93,7 +93,7 @@
 <div class="bk-overlay" id="bkOverlay"></div>
 <div class="bk-drawer" id="bkDrawer">
   <div class="bk-drawer-head">
-    <a href="/"><img src="logo1.png" alt="Fast Pay Saver" class="bk-drawer-logo"></a>
+    <a href="/"><img src="logo1.png" alt="Fast Pay SaverBank" class="bk-drawer-logo"></a>
     <button class="bk-drawer-x" id="bkDrawerClose"><i class="ri-close-line"></i></button>
   </div>
   <nav class="bk-drawer-links">

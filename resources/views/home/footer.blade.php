@@ -6,8 +6,8 @@
     <div class="bk-footer-grid">
       <!-- Brand -->
       <div class="bk-footer-about">
-        <a href="/"><img src="logo02.png" alt="Fast Pay Saver" class="bk-footer-logo"></a>
-        <p>Fast Pay Saver Banking Corporation is dedicated to innovating, simplifying, and humanizing digital banking for customers around the world.</p>
+        <a href="/"><img src="logo02.png" alt="Upward Saver Bank" class="bk-footer-logo"></a>
+        <p>Upward Saver Bank Banking Corporation is dedicated to innovating, simplifying, and humanizing digital banking for customers around the world.</p>
         <div class="bk-footer-socials">
           <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
           <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
@@ -50,7 +50,7 @@
         </div> --}}
         <div class="bk-footer-contact-item">
           <i class="ri-mail-line"></i>
-          <div><small>Email</small><p><a href="mailto:support@fastpaysaverbc.com">support@fastpaysaverbc.com</a></p></div>
+          <div><small>Email</small><p><a href="mailto:support@upwardsaverbc.com">support@upwardsaverbc.com</a></p></div>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
   <div class="bk-footer-bottom">
     <div class="bk-wrap">
       <div class="bk-footer-bottom-inner">
-        <p>&copy; {{ date('Y') }} Fast Pay Saver Banking Corporation. All rights reserved.</p>
+        <p>&copy; {{ date('Y') }} Upward Saver Bank Banking Corporation. All rights reserved.</p>
         <div class="bk-footer-bottom-links">
           <a href="{{ url('terms') }}">Terms</a>
           <a href="#">Privacy</a>
